@@ -16,40 +16,45 @@ import styles from "../styles";
 import {ListItem} from 'react-native-elements'
 import Realm from 'realm';
 import MushroomsCard from '../components/MushroomsCard.js'
+import { Avatar } from "react-native-elements/dist/avatar/Avatar";
+import Images from "../assets/images.js";
 
 
 const ShopScreen = ({navigation}) => {
   const [mushrooms, setMushrooms] = useState([])
   const app = new Realm.App({id: "mushzm-ctshl"})
   const [loading, setLoading] = useState(true)
-  const Item = (title) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  )
 
-    // <ListItem title={mushroom._id} />
-    // <View>
-    //     {/* <Item title={mushroom.id} /> */}
-    //       <TouchableOpacity>   
-    //         <Text>{mushroom.item.price.toString}</Text>
-    //   {/* 3      <Image style={styles.mushImg} source={{ uri: itemData.item.url }} /> // 3 */}
-    //     </TouchableOpacity>
-    // </View>
-
-  ItemSeparator = () => <View style={{
-    height:2,
-    width: "100%",
-    backgroundColor: 'gray',
-  }}/>
+  imageSelect = img => {
+    if (img === null) {
+      return Images.mushIcons.penisEnvy;
+    }
+    const mushroomIcons = {
+      'PE': Images.mushIcons.penisEnvy,
+      'APE': Images.mushIcons.albinoPenisEnvy,
+      'MAZ': Images.mushIcons.mazatapec,
+      'GM': Images.mushIcons.goldenMammoth,
+      'GT': Images.mushIcons.goldenTeacher,
+      'B': Images.mushIcons.b,
+      'AL': Images.mushIcons.alacabenzi,
+      'F': Images.mushIcons.f,
+      'KS': Images.mushIcons.kohSamai,
+      'FW': Images.mushIcons.floridaWhite,
+      'JMF': Images.mushIcons.jediMindFuck,
+      'A': Images.mushIcons.a,
+      'MAR': Images.mushIcons.martinique,
+      'AM': Images.mushIcons.amazonian,
+    };
+    return mushroomIcons[img];
+  };
 
   useEffect(() => {
     async function getData () {
     	const user = await app.logIn(Realm.Credentials.anonymous())
       const client = app.currentUser.mongoClient('mongodb-atlas')
       const mushies = client.db('MushZmStore').collection('Mushroom')
-      setMushrooms((await mushies.find()).slice(0, 10))
-      // console.log(mushrooms[0].price)
+      setMushrooms((await mushies.find()).slice(0, 14))
+      
     }
     if (loading) {
       getData();
@@ -60,17 +65,19 @@ const ShopScreen = ({navigation}) => {
   return (
     <View style={styles.ShopContainer}>
         <FlatList
+          containerStyle={styles.mushroomListItems}
           data={mushrooms}
+          numColumns={2}
+          columnWrapperStyle={styles.mushroomListItems}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => (
-            <View>
-              <Text>ddddd{"\n"}dddddd: {item.price}</Text>
-              <ListItem style={styles.mushroomListItems}
-                  roundAvatar
-                  title={item.price}
-                  // onPress={() => this.onLearnMore(item)}
-              />
-            </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Details', {item})}>  
+              <ListItem containerStyle={styles.mushroomListItem} image ={item.img}>
+                <Image style = {styles.mushImg} source={imageSelect(item.img)} />
+                <Text style={styles.strainText}> {item.strain}</Text>
+                <Text> ${item.price}/oz</Text>
+              </ListItem>
+            </TouchableOpacity>
           )}
         />
     </View>

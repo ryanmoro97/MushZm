@@ -4,6 +4,7 @@ import ShopScreen from "../screens/ShopScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { View, Image } from 'react-native';
 import styles from "../styles";
+
 const ShopStack = createStackNavigator();
 const ShopStackScreen = () => {
     return(

@@ -1,3 +1,4 @@
+import { Row } from 'react-bootstrap';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -9,9 +10,9 @@ export default StyleSheet.create({
     borderWidth: 3,
   },
   ShopContainer:{
-    flex: 1,
+    flex:1,
     backgroundColor : "#fda761", 
-    justifyContent: 'center', 
+    // justifyContent: 'center',
     borderColor: '#5b0e2d',
     borderWidth: 3,
     paddingTop: 20,
@@ -37,14 +38,41 @@ export default StyleSheet.create({
     marginBottom: 5,
     marginTop: 5,
   },
-  mushroomListItems:{
+  mushroomListItem:{
     borderColor: '#5b0e2d',
     borderWidth: 3,
     borderRadius:5,
+    backgroundColor:  "#b1acd9", 
+    flexDirection:'column',
+    padding:5,
+    minWidth:'45%',
+    marginBottom:15,
+  },
+  strainText:{
+    fontWeight: 'bold',
+    margin: 5,
+  },
+  mushroomHeader:{
+    fontWeight: 'bold',
+    fontSize: 15,
+    textDecorationLine: 'underline',
+    paddingBottom:5,
+    paddingTop:5,
   },
 
+  mushroomListItems:{
+    justifyContent: 'space-evenly',
+  },
   stackText: {
     textAlign: 'center',
+  },
+  mushImg:{
+    flex:1,
+    borderColor: '#5b0e2d',
+    borderWidth: 3,
+    width: '100%',
+    height: 150,
+    borderRadius: 5,
   },
   sectionHeader: {
     fontSize: 20,
@@ -62,21 +90,27 @@ export default StyleSheet.create({
     borderColor: '#5b0e2d',
     borderWidth: 3,
     borderRadius:5,
-    marginTop: 15,
-    marginHorizontal: 5,
-    padding: 5,
+    backgroundColor: '#b1acd9',
+    marginTop: 10,
+    marginBottom: 10,
+    marginHorizontal: 15,
+    padding: 10,
   },
   listItemHeader:{
+    
     // fontSize: 20,
     textDecorationLine: 'underline',
   },  
   companyItemHeader:{
     textDecorationLine: 'underline',
+    fontWeight: 'bold',
     textAlign: 'center',
+    fontSize: 15,
   },
 
   input: {
     borderColor: '#5b0e2d',
+    backgroundColor: "#b1acd9", 
     width: 50,
     borderWidth: 2,
     padding: 7,
@@ -102,21 +136,23 @@ export default StyleSheet.create({
     borderColor: '#5b0e2d',
     borderWidth: 2,
     borderRadius: 5,
-    backgroundColor: "#fda761", 
+    backgroundColor: "#b1acd9", 
   },
   dropDownUnits:{
-    backgroundColor: "#fda761",
+    backgroundColor: "#b1acd9", 
     borderRadius: 5,
     borderWidth: 2,
     borderColor: '#5b0e2d', 
   },
   dropDownUnitsRow: { 
-    borderBottomColor: '#5b0e2d', 
+    borderBottomColor: '#5b0e2d',
+    backgroundColor: "#b1acd9", 
     borderRadius: 3, 
   },
   dropDownDoseRow: { 
     borderBottomColor: '#5b0e2d',
     borderRadius: 3, 
+    backgroundColor: "#b1acd9", 
   },
   dropDownDose: {
     backgroundColor: "#fda761",
@@ -129,7 +165,7 @@ export default StyleSheet.create({
     borderColor: '#5b0e2d',
     borderWidth: 2,
     borderRadius: 10,
-    backgroundColor: "#fda761", 
+    backgroundColor: "#b1acd9",  
   },
   labelInputContainer:{
     flexDirection:'column',
@@ -177,6 +213,7 @@ export default StyleSheet.create({
     marginBottom: 20,
     padding: 5,
     borderRadius: 10,
+    backgroundColor: "#b1acd9", 
   },
   buttonImage: {
     width: 100,
