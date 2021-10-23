@@ -71,7 +71,7 @@ const ShopScreen = ({navigation}) => {
           columnWrapperStyle={styles.mushroomListItems}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => (
-            <TouchableOpacity onPress={() => navigation.navigate('Details', {item})}>  
+            <TouchableOpacity onPress={() => navigation.navigate('Details', {item:item, imgsrc:imageSelect(item.img)})}>  
               <ListItem containerStyle={styles.mushroomListItem} image ={item.img}>
                 <Image style = {styles.mushImg} source={imageSelect(item.img)} />
                 <Text style={styles.strainText}> {item.strain}</Text>

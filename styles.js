@@ -38,6 +38,14 @@ export default StyleSheet.create({
     marginBottom: 5,
     marginTop: 5,
   },
+  detailsTitle:{
+    fontSize: 20, 
+    marginBottom: 20,
+    marginTop: 10,
+    fontWeight: 'bold',
+    fontFamily: 'Georgia',
+    textAlign: 'center',
+  },
   mushroomListItem:{
     borderColor: '#5b0e2d',
     borderWidth: 3,
@@ -74,10 +82,47 @@ export default StyleSheet.create({
     height: 150,
     borderRadius: 5,
   },
+  mushImgDetails:{
+    borderColor: '#5b0e2d',
+    borderWidth: 3,
+    borderRadius: 15,
+    width: null,
+    height: 350,
+  },
+  addToCart:{
+    borderWidth:2,
+    alignSelf: 'center',
+    borderColor: '#5b0e2d',
+    width: 100,
+    marginTop: 20,
+    marginBottom: 20,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: "#b1acd9", 
+  },
+  cartIcon:{
+    resizeMode: 'contain',
+    // flex: ,
+    height: 25,
+    width: 25,
+    marginRight: 10,
+    tintColor: '#5961a6',
+    // justifyContent: 'center',
+  },
+  shopIconContainer:{
+    justifyContent: 'space-between',
+  },
   sectionHeader: {
     fontSize: 20,
     paddingBottom: 5,
     paddingTop: 5,
+    fontFamily: 'Georgia',
+    textAlign: 'center',
+  },
+  infoSectionHeader: {
+    fontSize: 20,
+    paddingBottom: 20,
+    paddingTop: 15,
     fontFamily: 'Georgia',
     textAlign: 'center',
   },
@@ -154,6 +199,12 @@ export default StyleSheet.create({
     borderRadius: 3, 
     backgroundColor: "#b1acd9", 
   },
+  dropDownWeightRow:{
+    borderBottomColor: '#5b0e2d',
+    borderRadius: 3, 
+    backgroundColor: "#b1acd9", 
+    height: 40,
+  },  
   dropDownDose: {
     backgroundColor: "#fda761",
     borderRadius: 5,
@@ -167,15 +218,30 @@ export default StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#b1acd9",  
   },
+  DropDownWeightBtn:{
+    width: 90,
+    height: 35,
+    marginTop: 5,
+    marginBottom: 10,
+    marginHorizontal: 5,
+    borderColor: '#5b0e2d',
+    borderWidth: 2,
+    borderRadius: 5,
+    backgroundColor: "#b1acd9", 
+  },
+  
   labelInputContainer:{
     flexDirection:'column',
     justifyContent: 'space-around',
   },
+  totalText:{
+    fontFamily: 'Georgia',
+    fontSize: 25, 
+  },
   fullLabelInputContainer:{
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     paddingTop: 10,
-    
   },
   inputContainer:{
     flexDirection: 'column',
@@ -201,6 +267,11 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: '#5b0e2d',
   },
+  mushInfo:{
+    paddingBottom: 10,
+    textAlign: 'center',
+    // color: '#5b0e2d',
+  },
   displayValueText:{
     fontWeight: 'bold',
     fontSize: 20,
@@ -213,7 +284,7 @@ export default StyleSheet.create({
     marginBottom: 20,
     padding: 5,
     borderRadius: 10,
-    backgroundColor: "#b1acd9", 
+    // backgroundColor: "#b1acd9", 
   },
   buttonImage: {
     width: 100,

@@ -4,6 +4,7 @@ import {
     ScrollView,
     Text,
     TextInput,
+    Image,
     View,
   } from 'react-native';
 import { Value } from "react-native-reanimated";
@@ -14,90 +15,83 @@ import "react-native-gesture-handler";
 
 
 
-const DosageScreen = ({navigation}) => {
-    const [dosage, setDosage] = useState('2.0');
+const DetailsScreen = ({route, navigation}) => {
+    const [weight, setWeight] = useState(3);
+    const [total, setTotal] = useState(route.params.item.price);
+    const ozPrice = route.params.item.price
     var tripFactor = 0.03;
-    const doseOptions = ["Micro", "Low", "Normal", "High", "Heroic"]
+    const weightOptions = ["1/8 oz", "1/4 oz", "1/2 oz", "1 oz", "4 oz"]
     const unitOptions = ["lbs", "kg"]
-    
-    useEffect(() => {
+    // const { _id, strain, price, descr, img } = route.params;
 
+    useEffect(() => {
+        switch(+weight) {
+            case 0: //micro
+              costFactor = (1/8);
+              break;
+            case 1: //low
+              costFactor = (1/4);
+              break;
+            case 2: //normal
+              costFactor = (1/2);
+              break;
+            case 3: //high
+              costFactor = (1);
+              break;
+            case 4: //heroic
+              costFactor = (4);
+              break;
+          }
+          setTotal((costFactor*ozPrice).toFixed(2));
     });
 
     return (
       
       <View style={styles.StackContainer}>
-          <Text>HEhheheh</Text>
-          <Text>HEhheheh</Text>
-        {/* <Text style={styles.stackText}>Each 
-        </Text>
-        <View style = {styles.fullLabelInputContainer}>
-          <View style = {styles.labelInputContainer}>
-            <Text>Weight: </Text>
-          </View>
-          <View style={styles.unitCombo}>
-            <View style ={styles.inputContainer}>
-              <TextInput
-                type = 'number'
-                style={styles.input}
-                keyboardType={'numeric'}
-                defaultValue='150'
-                onChangeText={(val) => setWeight(val) }
-                maxLength={4}
-              />
+        <ScrollView>
+            <Text style={styles.detailsTitle}>{route.params.item.strain}</Text>
+            <Image style = {styles.mushImgDetails} source={route.params.imgsrc} />
+            <View style = {styles.fullLabelInputContainer}>
+                <View style = {styles.labelInputContainer}>
+                    <Text>Weight: </Text>
+                </View>
+                <View style={styles.unitCombo}>
+                    <View style ={styles.inputContainer}>
+                        <SelectDropdown
+                        data={weightOptions}
+                        defaultButtonText = "1 oz"
+                        dropdownStyle = {styles.dropDownUnits}
+                        buttonStyle = {styles.DropDownWeightBtn}
+                        rowStyle = {styles.dropDownWeightRow}
+                        onSelect={(selectedItem, index) => {
+                            setWeight(index);
+                        }}
+                        buttonTextAfterSelection={(selectedItem, index) => {
+                            return selectedItem
+                        }}
+                        rowTextForSelection={(item, index) => {
+                            return item
+                        }}
+                        />
+                    </View>
+                </View>
             </View>
-            <SelectDropdown
-              data={unitOptions}
-              defaultButtonText = "lbs"
-              dropdownStyle = {styles.dropDownUnits}
-              buttonStyle = {styles.dropDownUnitsBtn}
-              rowStyle = {styles.dropDownUnitsRow}
-              onSelect={(selectedItem, index) => {
-                setUnits(index);
-              }}
-              buttonTextAfterSelection={(selectedItem, index) => {
-                return selectedItem
-              }}
-              rowTextForSelection={(item, index) => {
-                return item
-              }}
-            />
-          </View>
-        </View>
+            <View style = {styles.fullLabelInputContainer}>
+                <View style = {styles.labelInputContainer}>
+                    <Text>Total: </Text>
+                </View>
+                <Text style={styles.totalText}>${total}</Text>
+            </View>
+            <View style={styles.addToCart}>
+                <Text style={styles.stackText}>Add to cart</Text>
+            </View>
 
-        <View style = {styles.fullLabelInputContainer}>
-          <View style = {styles.labelInputContainer}>
-            <Text>Dose:     </Text>
-          </View>
-          <SelectDropdown
-            data={doseOptions}
-            defaultButtonText = "Normal"
-            buttonStyle = {styles.dropDownDoseBtn}
-            dropdownStyle = {styles.dropDownDose}
-            rowStyle = {styles.dropDownDoseRow}
-            onSelect={(selectedItem, index) => {
-              setDose(index);
-              
-            }}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              return selectedItem
-            }}
-            rowTextForSelection={(item, index) => {
-              return item
-            }}
-          />
-        </View>
-        <View style={styles.boxArea}>
-          <Text style={styles.stackText}>Recommended dose</Text>
-          <Text style={styles.displayValueText}>{dosage} g</Text> 
-        </View>
+            <Text style = {styles.infoSectionHeader}>Info</Text>
+            <Text style = {styles.mushInfo}>{route.params.item.descr}</Text>
 
-        <Text style={styles.stackText}>These calculators can only provide an estimate based 
-          on average dry potency. Adjust accordingly. {"\n"} For a full tolerance reset 2 weeks 
-          is standard.
-        </Text> */}
-      </View>
+        </ScrollView>
+    </View>
     );
 };
 
-export default DosageScreen;
+export default DetailsScreen;
