@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
     SafeAreaView,
     ScrollView,
@@ -15,15 +15,16 @@ import {
 import styles from "../styles";
 import {ListItem} from 'react-native-elements'
 import Realm from 'realm';
-import MushroomsCard from '../components/MushroomsCard.js'
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import Images from "../assets/images.js";
+import MongoContext from "../MongoContext";
 
 
 const ShopScreen = ({navigation}) => {
   const [mushrooms, setMushrooms] = useState([])
-  const app = new Realm.App({id: "mushzm-ctshl"})
   const [loading, setLoading] = useState(true)
+  const mongo = useContext(MongoContext)
+  const app = mongo.app//new Realm.App({id: "mushzm-ctshl"})
 
   imageSelect = img => {
     if (img === null) {
@@ -50,7 +51,7 @@ const ShopScreen = ({navigation}) => {
 
   useEffect(() => {
     async function getData () {
-    	const user = await app.logIn(Realm.Credentials.anonymous())
+    	const user =  user// await app.logIn(Realm.Credentials.anonymous())
       const client = app.currentUser.mongoClient('mongodb-atlas')
       const mushies = client.db('MushZmStore').collection('Mushroom')
       setMushrooms((await mushies.find()).slice(0, 14))

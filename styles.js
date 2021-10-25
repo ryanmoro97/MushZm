@@ -23,6 +23,7 @@ export default StyleSheet.create({
     justifyContent: 'center', 
     borderColor: '#5b0e2d',
     borderWidth: 3,
+    alignContent: 'center',
   },
   StackContainer: {
     flex: 1,
@@ -109,6 +110,25 @@ export default StyleSheet.create({
     tintColor: '#5961a6',
     // justifyContent: 'center',
   },
+  loginBtn:{
+    alignContent: 'center',
+    borderWidth:2,
+    alignSelf: 'center',
+    borderColor: '#5b0e2d',
+    borderRadius: 5,
+    width: 150,
+    padding: 5,
+    margin: 20,
+    backgroundColor: "#b1acd9", 
+  },
+
+  loginBtnText:{
+    alignContent: 'center',
+    textAlign: 'center',
+    fontSize: 20,
+    fontFamily: 'Georgia',
+  },
+  
   shopIconContainer:{
     justifyContent: 'space-between',
   },
@@ -295,6 +315,7 @@ export default StyleSheet.create({
   Button: {
 
   },
+
   safeAreaTop: {
     flex: 0,
     backgroundColor: '#000',

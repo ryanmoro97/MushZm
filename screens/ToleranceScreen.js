@@ -11,6 +11,7 @@ import styles from "../styles";
 
 
 
+
 const DosageScreen = ({navigation}) => {
     const [firstDose, setFirstDose] = useState(3.5);
     const [desiredDose, setDesiredDose] = useState(3.5);
@@ -21,7 +22,9 @@ const DosageScreen = ({navigation}) => {
       // // https://psychedeliccalc.herokuapp.com
       var estimatedDosage = firstDose / 100 * 280.059565 * Math.pow(days, -0.412565956) + (desiredDose - firstDose);
       var newAmount = estimatedDosage < desiredDose ? desiredDose : estimatedDosage;
-      setSecondDose(newAmount.toFixed(1));
+      if(!isNaN(newAmount)){
+        setSecondDose(newAmount.toFixed(1));
+      }
     });
 
     return (
