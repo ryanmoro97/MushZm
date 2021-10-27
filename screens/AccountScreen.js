@@ -12,10 +12,12 @@ import { useState, useEffect, useContext } from 'react'
 import { TouchableOpacity } from "react-native-gesture-handler";
 import styles from "../styles";
 import SignInScreen from "./SignInScreen";
-import MongoContext from "../MongoContext";
+import MongoContext from "../context/MongoContext";
+import UserContext from "../context/UserContext";
 
 const AccountScreen = ({navigation}) => {
     const mongo = useContext(MongoContext)
+    const user = useContext(UserContext)
 
     async function logout () {
         try{
@@ -30,10 +32,29 @@ const AccountScreen = ({navigation}) => {
         }
     }
 
+    
+
+    useEffect(() => {
+        console.log("user: " + user.email)
+        async function getData () {
+            const userInfo = mongo.client.db('MushZmStore').collection('Profile').findOne({email: user.email});
+            console.log("")
+        
+        }
+        getData();
+        
+    },)
+
     return (
         <View style={styles.ProfileContainer}>
-            <Text style={styles.loginBtnText}>sfsdfsfsdfsd {mongo.user.id}</Text>
-            <TouchableOpacity style={styles.loginBtn} onPress={() => logout()}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Orders')}>
+                <Text style={styles.loginBtnText}>Orders</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Reports')}>
+                <Text style={styles.loginBtnText}>Reports</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.logoutBtn} onPress={() => logout()}>
                 <Text style={styles.loginBtnText}>Sign out</Text>
             </TouchableOpacity>
         </View>

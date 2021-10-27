@@ -56,7 +56,39 @@ export default StyleSheet.create({
     padding:5,
     minWidth:'45%',
     marginBottom:15,
+    shadowColor: 'rgba(0, 0, 0, 0.6)',
+    shadowOpacity: 1,
+    shadowRadius: 5 ,
+    shadowOffset : { width: 1, height: 8},
   },
+  reportListItem:{
+    borderColor: '#5b0e2d',
+    borderWidth: 3,
+    borderRadius:5,
+    backgroundColor:  "#b1acd9", 
+    flexDirection:'column',
+    padding:5,
+    minWidth:'45%',
+    margin:10,
+  },
+ ordersListItem:{
+    backgroundColor:  "#b1acd9", 
+    flexDirection:'column',
+    padding:1,
+    minWidth:'45%',
+    margin:3,
+  },
+  cartListItem:{
+    borderColor: '#5b0e2d',
+    borderWidth: 3,
+    borderRadius:5,
+    backgroundColor:  "#b1acd9", 
+    flexDirection:'column',
+    paddingTop:5,
+    minWidth:'45%',
+    margin:5,
+  },
+
   strainText:{
     fontWeight: 'bold',
     margin: 5,
@@ -72,6 +104,9 @@ export default StyleSheet.create({
   mushroomListItems:{
     justifyContent: 'space-evenly',
   },
+  // reportListItems:{
+  //   justifyContent: 'space-evenly',
+  // },
   stackText: {
     textAlign: 'center',
   },
@@ -100,15 +135,18 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     backgroundColor: "#b1acd9", 
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowOpacity: 0.7,
+    elevation: 6,
+    shadowRadius: 3 ,
+    shadowOffset : { width: 1, height: 5},
   },
   cartIcon:{
     resizeMode: 'contain',
-    // flex: ,
     height: 25,
     width: 25,
     marginRight: 10,
     tintColor: '#5961a6',
-    // justifyContent: 'center',
   },
   loginBtn:{
     alignContent: 'center',
@@ -120,13 +158,36 @@ export default StyleSheet.create({
     padding: 5,
     margin: 20,
     backgroundColor: "#b1acd9", 
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowOpacity: 0.7,
+    elevation: 6,
+    shadowRadius: 5 ,
+    shadowOffset : { width: 1, height: 8},
+  },
+  logoutBtn:{
+    alignContent: 'center',
+    borderWidth:2,
+    alignSelf: 'center',
+    borderColor: '#5b0e2d',
+    borderRadius: 5,
+    width: 150,
+    padding: 5,
+    margin: 20,
+    marginTop: 50,
+    backgroundColor: "#b1acd9", 
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowOpacity: 0.7,
+    elevation: 6,
+    shadowRadius: 5 ,
+    shadowOffset : { width: 1, height: 8},
+    
   },
 
   loginBtnText:{
     alignContent: 'center',
     textAlign: 'center',
     fontSize: 20,
-    fontFamily: 'Georgia',
+    fontFamily: "Georgia"
   },
   
   shopIconContainer:{
@@ -178,10 +239,19 @@ export default StyleSheet.create({
     backgroundColor: "#b1acd9", 
     width: 50,
     borderWidth: 2,
-    padding: 7,
+    padding: 5,
     margin: 5,
     textAlign: 'center',
+    fontSize: 18,
     borderRadius: 5,
+    fontFamily: 'Georgia',
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowOpacity: 0.7,
+    elevation: 6,
+    shadowRadius: 3 ,
+    shadowOffset : { width: 1, height: 4},
+
+    
   },
   inputRow:{
     flexDirection: "row", 
@@ -202,17 +272,20 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
     backgroundColor: "#b1acd9", 
+    
   },
   dropDownUnits:{
     backgroundColor: "#b1acd9", 
     borderRadius: 5,
     borderWidth: 2,
     borderColor: '#5b0e2d', 
+    
   },
   dropDownUnitsRow: { 
     borderBottomColor: '#5b0e2d',
     backgroundColor: "#b1acd9", 
     borderRadius: 3, 
+    
   },
   dropDownDoseRow: { 
     borderBottomColor: '#5b0e2d',
@@ -236,7 +309,18 @@ export default StyleSheet.create({
     borderColor: '#5b0e2d',
     borderWidth: 2,
     borderRadius: 10,
-    backgroundColor: "#b1acd9",  
+    backgroundColor: "#b1acd9", 
+  },
+  displayOptions:{
+    shadowColor: 'rgba(0, 0, 0, 0.8)',
+    shadowOpacity: 0.7,
+    elevation: 6,
+    shadowRadius: 3 ,
+    shadowOffset : { width: 1, height: 5},
+  },
+  displayOptionsText:{
+    fontFamily: 'Georgia',
+    textAlign: 'center',
   },
   DropDownWeightBtn:{
     width: 90,
@@ -257,6 +341,7 @@ export default StyleSheet.create({
   totalText:{
     fontFamily: 'Georgia',
     fontSize: 25, 
+    textAlign: 'center'
   },
   fullLabelInputContainer:{
     flexDirection: 'row',

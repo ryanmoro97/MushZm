@@ -17,14 +17,13 @@ import {ListItem} from 'react-native-elements'
 import Realm from 'realm';
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import Images from "../assets/images.js";
-import MongoContext from "../MongoContext";
+import MongoContext from "../context/MongoContext";
 
 
 const ShopScreen = ({navigation}) => {
   const [mushrooms, setMushrooms] = useState([])
   const [loading, setLoading] = useState(true)
   const mongo = useContext(MongoContext)
-  const app = mongo.app//new Realm.App({id: "mushzm-ctshl"})
 
   imageSelect = img => {
     if (img === null) {
@@ -51,16 +50,18 @@ const ShopScreen = ({navigation}) => {
 
   useEffect(() => {
     async function getData () {
-    	const user =  user// await app.logIn(Realm.Credentials.anonymous())
-      const client = app.currentUser.mongoClient('mongodb-atlas')
-      const mushies = client.db('MushZmStore').collection('Mushroom')
-      setMushrooms((await mushies.find()).slice(0, 14))
-      
+      try{
+        const mushies = mongo.client.db('MushZmStore').collection('Mushroom')
+        setMushrooms((await mushies.find()).slice(0, 14))
+        console.log("msh: " + mushrooms)
+        console.log("msh: " + JSON.stringify(mushrooms))
+        
+      }catch(err){
+
+      }
     }
-    if (loading) {
-      getData();
-    }
-  }, [loading])
+    getData();
+  },[mongo])
 
 
   return (

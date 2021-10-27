@@ -9,7 +9,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Fragment } from 'react/cjs/react.production.min';
 import { useState, useEffect } from 'react';
 import Tabs from './navigation/tabs'
-import MongoContext from './MongoContext.js';
 
 export default function App() {
 

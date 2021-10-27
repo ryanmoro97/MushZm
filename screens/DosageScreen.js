@@ -71,14 +71,45 @@ const DosageScreen = ({navigation}) => {
                 maxLength={4}
               />
             </View>
+            <View style = {styles.displayOptions}>
+              <SelectDropdown
+                data={unitOptions}
+                defaultButtonText = "lbs"
+                buttonTextStyle = {styles.displayOptionsText}
+                rowTextStyle = {styles.displayOptionsText}
+                dropdownStyle = {styles.dropDownUnits}
+                buttonStyle = {styles.dropDownUnitsBtn}
+                rowStyle = {styles.dropDownUnitsRow}
+                onSelect={(selectedItem, index) => {
+                  setUnits(index);
+                }}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item
+                }}
+              />
+            </View>
+          </View>
+        </View>
+
+        <View style = {styles.fullLabelInputContainer}>
+          <View style = {styles.labelInputContainer}>
+            <Text>Dose:     </Text>
+          </View>
+          <View style = {styles.displayOptions}>
             <SelectDropdown
-              data={unitOptions}
-              defaultButtonText = "lbs"
-              dropdownStyle = {styles.dropDownUnits}
-              buttonStyle = {styles.dropDownUnitsBtn}
-              rowStyle = {styles.dropDownUnitsRow}
+              data={doseOptions}
+              defaultButtonText = "Normal"
+              buttonStyle = {styles.dropDownDoseBtn}
+              dropdownStyle = {styles.dropDownDose}
+              buttonTextStyle = {styles.displayOptionsText}
+              rowTextStyle = {styles.displayOptionsText}
+              rowStyle = {styles.dropDownDoseRow}
               onSelect={(selectedItem, index) => {
-                setUnits(index);
+                setDose(index);
+                
               }}
               buttonTextAfterSelection={(selectedItem, index) => {
                 return selectedItem
@@ -88,29 +119,6 @@ const DosageScreen = ({navigation}) => {
               }}
             />
           </View>
-        </View>
-
-        <View style = {styles.fullLabelInputContainer}>
-          <View style = {styles.labelInputContainer}>
-            <Text>Dose:     </Text>
-          </View>
-          <SelectDropdown
-            data={doseOptions}
-            defaultButtonText = "Normal"
-            buttonStyle = {styles.dropDownDoseBtn}
-            dropdownStyle = {styles.dropDownDose}
-            rowStyle = {styles.dropDownDoseRow}
-            onSelect={(selectedItem, index) => {
-              setDose(index);
-              
-            }}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              return selectedItem
-            }}
-            rowTextForSelection={(item, index) => {
-              return item
-            }}
-          />
         </View>
         <View style={styles.boxArea}>
           <Text style={styles.stackText}>Recommended dose</Text>

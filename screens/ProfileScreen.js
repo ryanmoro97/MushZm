@@ -12,7 +12,7 @@ import { useState, useEffect, useContext } from 'react'
 import { TouchableOpacity } from "react-native-gesture-handler";
 import styles from "../styles";
 import SignInScreen from "./SignInScreen";
-import MongoContext from "../MongoContext";
+import MongoContext from "../context/MongoContext";
 
 const ProfileScreen = ({navigation}) => {
     return (

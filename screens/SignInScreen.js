@@ -4,7 +4,8 @@ import * as yup from 'yup'
 import { useState, useEffect, useContext } from 'react'
 import Loading from '../components/Loading'
 import { useHistory } from 'react-router'
-import MongoContext from '../MongoContext'
+import MongoContext from '../context/MongoContext'
+import UserContext from '../context/UserContext'
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from "../styles";
@@ -25,6 +26,7 @@ import {
     const [email, setEmail] = useState('')
     const [pw, setpw] = useState('')
     const mongo = useContext(MongoContext)
+    const user = useContext(UserContext)
 
     function isAnon (user) {
         return !user || user.identities[0].providerType === 'anon-user'
@@ -41,6 +43,7 @@ import {
         }
         const credentials = Realm.Credentials.emailPassword(email, pw);
         try {
+            user.setEmail(email);
             mongo.setUser(await mongo.app.logIn(credentials));
             navigation.navigate('Account')
         } catch (err) {

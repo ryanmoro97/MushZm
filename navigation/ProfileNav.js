@@ -9,35 +9,42 @@ import ReportsScreen from "../screens/ReportsScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { View, Image } from 'react-native';
 import styles from "../styles";
+import MongoContext from "../context/MongoContext";
+import UserContext from "../context/UserContext";
+
 const ProfileStack = createStackNavigator();
-import MongoContext from "../MongoContext";
 
 const ProfileStackScreen = ({navigation, client, user}) => {
     return(
         <MongoContext.Consumer>{(MongoContext) => {
             return(
-                <ProfileStack.Navigator screenOptions ={({ route }) => ({
-                    headerTintColor: '#5961a6',
-                    headerTitleStyle: {
-                        fontWeight: 'normal',
-                        fontFamily: 'Georgia'
-                    },
-                    headerLeftLabelVisible: false,
-                    headerBackground: () => (
-                        <Image
-                        style = {styles.headerBackground}
-                        source = {require('../assets/header/header.png')}
-                        />
+                <UserContext.Consumer>{(UserContext) => {
+                    return (
+                    <ProfileStack.Navigator screenOptions ={({ route }) => ({
+                        headerTintColor: '#5961a6',
+                        headerTitleStyle: {
+                            fontWeight: 'normal',
+                            fontFamily: 'Georgia'
+                        },
+                        headerLeftLabelVisible: false,
+                        headerBackground: () => (
+                            <Image
+                            style = {styles.headerBackground}
+                            source = {require('../assets/header/header.png')}
+                            />
+                        )
+                    })}
+                    >
+                        <ProfileStack.Screen name="Profile" component={ProfileScreen}/> 
+                        <ProfileStack.Screen name="Sign in" component={SignInScreen}/> 
+                        <ProfileStack.Screen name="Sign up" component={SignUpScreen}/> 
+                        <ProfileStack.Screen name="Account" component={AccountScreen} options={{headerLeft: null}}/> 
+                        <ProfileStack.Screen name="Orders" component={OrdersScreen}/> 
+                        <ProfileStack.Screen name="Reports" component={ReportsScreen}/> 
+                    </ProfileStack.Navigator>
                     )
-                })}
-                >
-                    <ProfileStack.Screen name="Profile" component={ProfileScreen}/> 
-                    <ProfileStack.Screen name="Sign in" component={SignInScreen}/> 
-                    <ProfileStack.Screen name="Sign up" component={SignUpScreen}/> 
-                    <ProfileStack.Screen name="Account" component={AccountScreen} options={{headerLeft: null}}/> 
-                    {/* <ProfileStack.Screen name="Orders" component={OrdersScreen}/> 
-                    <ProfileStack.Screen name="Reports" component={ReportsScreen}/>  */}
-                </ProfileStack.Navigator>
+                }}
+                </UserContext.Consumer>
             )
         }}</MongoContext.Consumer>
             

@@ -4,10 +4,15 @@ import * as yup from 'yup'
 import { useState, useEffect, useContext } from 'react'
 import Loading from '../components/Loading'
 import { useHistory } from 'react-router'
-import MongoContext from '../MongoContext'
+import MongoContext from '../context/MongoContext'
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from "../styles";
+import {UserSchema,
+        OrderSchema,
+        OrderMushSchema,
+        ReportsSchema} 
+        from "../schemas/UserSchema"
 
 import {
     SafeAreaView,
@@ -19,12 +24,14 @@ import {
     useColorScheme,
     View,
   } from 'react-native';
+import UserContext from '../context/UserContext'
 
 
 const SignUpScreen = ({navigation}) => {
     const [loading, setLoading] = useState(false);
     const history = useHistory();
     const mongo = useContext(MongoContext)
+    const user = useContext(UserContext)
     const [email, setEmail] = useState('')
     const [pw, setpw] = useState('')
 
@@ -37,19 +44,22 @@ const SignUpScreen = ({navigation}) => {
             alert('Fields cannot be empty')
             return
         }
-        setLoading(true)
-        await app.emailPasswordAuth.registerUser(email, pw);
-        //login user and redirect to home
-        const credentials = Realm.Credentials.emailPassword(email, pw);
-        setUser(await app.logIn(credentials))
-        console.log("sdfs")
-        setLoading(false)
+        try{
+            user.setEmail(email)
+            console.log("email: " + email)
+            
+            await mongo.app.emailPasswordAuth.registerUser(email, pw);
+            //login user and redirect to home
+            const credentials = Realm.Credentials.emailPassword(email, pw);
+            mongo.setUser(await mongo.app.logIn(credentials))
+            await mongo.client.db('MushZmStore').collection('Profile').insertOne({
+                email: email,
+            });
+            navigation.navigate('Account')
+        }catch (err){
+            console.log("error signing up: " + err.message)
+        }
     }
-
-    useEffect(() => {
-        // console.log("username")
-        },
-    )
 
     return (
         
