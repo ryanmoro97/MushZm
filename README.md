@@ -8,7 +8,7 @@ The app features dosage/tolerance calculators, a marketplace, and customer profi
 MongoDB is used to provide offline first back end functionality. 
 
 <p align="center">
-	<img width="200" src="assets/demoImages/1.png"/>
+	<img width="180" src="assets/demoImages/1.png"/>
 	<img width="200" src="assets/demoImages/2.png"/>
 	<img width="200" src="assets/demoImages/3.png"/>
 	<img width="200" src="assets/demoImages/5.png"/>
