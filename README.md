@@ -1,4 +1,6 @@
 # MushZm
+<img src="assets/header/header.png" />
+
 
 MushZm is a cross platform React Native app for customer entry to the therapeutic use of psilocybin by providing 
 information on published papers and companies involved in clinical trials, research and/or distribution.
@@ -8,7 +10,7 @@ The app features dosage/tolerance calculators, a marketplace, and customer profi
 MongoDB is used to provide offline first back end functionality. 
 
 <p align="center">
-	<img width="180" src="assets/demoImages/1.png"/>
+	<img width="200" src="assets/demoImages/1.png"/>
 	<img width="200" src="assets/demoImages/2.png"/>
 	<img width="200" src="assets/demoImages/3.png"/>
 	<img width="200" src="assets/demoImages/5.png"/>
