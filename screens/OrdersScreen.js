@@ -59,12 +59,12 @@ const OrdersScreen = ({navigation}) => {
                 renderItem={({item}) => (
                   <ListItem containerStyle={styles.ordersListItem}>
                       <Text style={styles.strainText}>{item.strain}</Text>
-                      <Text>{item.weight}oz | ${item.cost}</Text>
+                      <Text>{item.weight} | ${item.cost}</Text>
                   </ListItem>
                 )}
               />
               <Text></Text>
-              <Text style={styles.totalText}>Total: ${item.total}/oz</Text>
+              <Text style={styles.totalText}>Total: ${item.total}</Text>
             </ListItem>
           )}
         />

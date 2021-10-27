@@ -36,7 +36,7 @@ const UsesScreen = () => {
           In fact, a small open-label study Source on psilocybin and alcohol dependence found that following treatment, both drinking and heavy drinking declined.
           
           </Text>
-          <Text style = {styles.sectionHeader}>Dimentia</Text>
+          <Text style = {styles.sectionHeader}>Dementia</Text>
           <Text>    Currently, there are no disease-modifying treatments for Alzheimer’s disease (AD) or any other dementia subtype. The renaissance in psychedelic research in recent years, in particular studies involving 
             psilocybin and lysergic acid diethylamide (LSD), coupled with anecdotal reports of cognitive benefits from micro-dosing, suggests that they may have a therapeutic role in a range of psychiatric and neurological 
             conditions due to their potential to stimulate neurogenesis, provoke neuroplastic changes and reduce neuroinflammation.
