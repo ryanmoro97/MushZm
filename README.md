@@ -9,23 +9,20 @@ MongoDB is used to provide offline first back end functionality.
 
 <p align="center">
 	<img width="200" src="assets/demoImages/1.png"/>
-	<img width="200" src="doc/images/UI/Sign Up.png"/>
-	<img width="200" src="doc/images/UI/Add Book.png"/>
-	<img width="200" src="doc/images/UI/Edit Book.png"/>
-	<img width="200" src="doc/images/UI/Filter.png"/>
-	<img width="200" src="doc/images/UI/MyBooks.png"/>
-	<img width="200" src="doc/images/UI/Borrowed Books.png"/>
-	<img width="200" src="doc/images/UI/Find Books.png"/>
-	<img width="200" src="doc/images/UI/Incoming Requests.png"/>
-	<img width="200" src="doc/images/UI/Accepted Requests.png"/>
-	<img width="200" src="doc/images/UI/Requested.png"/>
-	<img width="200" src="doc/images/UI/NavDrawer.png"/>
-	<img width="200" src="doc/images/UI/Profile.png"/>
-	<img width="200" src="doc/images/UI/Edit Profile.png"/>
-	<img width="200" src="doc/images/UI/Scan.png"/>
-	<img width="200" src="doc/images/UI/View Book.png"/>
-	<img width="200" src="doc/images/UI/View User.png"/>
-	<img width="200" src="doc/images/UI/SetGeo.png"/>
-	<img width="200" src="doc/images/UI/ViewGeo.png"/>
+	<img width="200" src="assets/demoImages/2.png"/>
+	<img width="200" src="assets/demoImages/3.png"/>
+	<img width="200" src="assets/demoImages/4.png"/>
+	<img width="200" src="assets/demoImages/5.png"/>
+	<img width="200" src="assets/demoImages/6.png"/>
+	<img width="200" src="assets/demoImages/7.png"/>
+	<img width="200" src="assets/demoImages/8.png"/>
+	<img width="200" src="assets/demoImages/9.png"/>
+	<img width="200" src="assets/demoImages/10.png"/>
+	<img width="200" src="assets/demoImages/11.png"/>
+	<img width="200" src="assets/demoImages/12.png"/>
+	<img width="200" src="assets/demoImages/13.png"/>
+	<img width="200" src="assets/demoImages/14.png"/>
+	<img width="200" src="assets/demoImages/15.png"/>
+	<img width="200" src="assets/demoImages/16.png"/>
 	
 </p>
