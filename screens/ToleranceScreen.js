@@ -19,7 +19,7 @@ const DosageScreen = ({navigation}) => {
     const [days, setDays] = useState(3);
     
     useEffect(() => {
-      // // https://psychedeliccalc.herokuapp.com
+      // https://psychedeliccalc.herokuapp.com source for tolerance calculator 
       var estimatedDosage = firstDose / 100 * 280.059565 * Math.pow(days, -0.412565956) + (desiredDose - firstDose);
       var newAmount = estimatedDosage < desiredDose ? desiredDose : estimatedDosage;
       if(!isNaN(newAmount)){

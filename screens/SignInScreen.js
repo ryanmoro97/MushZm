@@ -19,7 +19,6 @@ import {
     useColorScheme,
     View,
   } from 'react-native';
-
   
   const SignInScreen = ({navigation}) => {
     const history = useHistory();

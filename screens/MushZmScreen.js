@@ -11,7 +11,6 @@ import {
     View,
   } from 'react-native';
 import styles from "../styles";
-// import { MushZmNavigator } from "../navigation/MushZmNav";
 
 const MushZmScreen = ({navigation}) => {
     return (

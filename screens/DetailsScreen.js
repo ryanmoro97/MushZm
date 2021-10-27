@@ -54,34 +54,25 @@ const DetailsScreen = ({route, navigation}) => {
                 const currentTotal = currentCart.pop()
                 const Total = (parseFloat(total)+parseFloat(currentTotal))
                 const cartSize = currentCart.length 
+                //add currentCart to databaseCart
                 currentCart.push({
                     strain: route.params.item.strain,
                     cost: total,
                     weight: weightOptions[weight]
                 }, Total)
+                // update user.cart & database cart
                 user.cart = currentCart
                 mongo.client.db('MushZmStore').collection('Profile').updateOne(
                     {email: user.email},
                     {$set: {cart: currentCart}}
                 )
-                // console.log("cartSize: " + cartSize)
-                // console.log("reee2: " + JSON.stringify(dbCart))
-                //add currentCart to databaseCart
-                
-                console.log("dbcart: " + JSON.stringify(currentCart))
-
-                // update user.cart
-                // update database cart
-
             }
-            // user.setCart(Object.values()
-            
-
           }catch(err){
             console.log(err.message)
           }
     }
 
+    // determine cost based on weight selected
     useEffect(() => {
         switch(+weight) {
             case 0: //micro

@@ -29,6 +29,7 @@ const OrdersScreen = ({navigation}) => {
   const user = useContext(UserContext)
 
   useEffect(() => {
+    // retrieve and display orders 
     async function getData () {
         try{
           const userInfo = mongo.client.db('MushZmStore').collection('Orders').find({email: user.email})

@@ -34,6 +34,7 @@ const ReportsScreen = ({navigation}) => {
   async function checkout() {
       console.log("checkin out")
       try{
+        // make sure cart is full, add order to database, empty cart
         if(total != 0){
           await mongo.client.db('MushZmStore').collection('Orders').insertOne({
               email: user.email,
@@ -59,15 +60,13 @@ const ReportsScreen = ({navigation}) => {
   useEffect(() => {
     async function getData () {
       try{
+        // get cart data and display 
         const userInfo = mongo.client.db('MushZmStore').collection('Profile').find({email: user.email})
         const data = Object.values((await userInfo).slice(0, 10)[0].cart)
-        console.log("data: " + data)
-        console.log("data: " + JSON.stringify(data))
-        
         setTotal(data.pop())
         setCart(data)
       }catch(err){
-        console.log(err.message)
+        // console.log(err.message)
       }
     }
     getData();

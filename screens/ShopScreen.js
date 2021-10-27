@@ -25,6 +25,7 @@ const ShopScreen = ({navigation}) => {
   const [loading, setLoading] = useState(true)
   const mongo = useContext(MongoContext)
 
+  // find stored image based on database reference
   imageSelect = img => {
     if (img === null) {
       return Images.mushIcons.penisEnvy;
@@ -49,6 +50,7 @@ const ShopScreen = ({navigation}) => {
   };
 
   useEffect(() => {
+    // retrieve available shop selection from database
     async function getData () {
       try{
         const mushies = mongo.client.db('MushZmStore').collection('Mushroom')

@@ -24,6 +24,7 @@ const DosageScreen = ({navigation}) => {
     const doseOptions = ["Micro", "Low", "Normal", "High", "Heroic"]
     const unitOptions = ["lbs", "kg"]
     
+    // determine factor to normalize for bodyweight
     useEffect(() => {
       switch(+dose) {
         case 0: //micro
