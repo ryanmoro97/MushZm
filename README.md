@@ -11,8 +11,8 @@ MongoDB is used to provide offline first back end functionality.
 	<img width="200" src="assets/demoImages/1.png"/>
 	<img width="200" src="assets/demoImages/2.png"/>
 	<img width="200" src="assets/demoImages/3.png"/>
-	<img width="200" src="assets/demoImages/4.png"/>
 	<img width="200" src="assets/demoImages/5.png"/>
+	<img width="200" src="assets/demoImages/4.png"/>
 	<img width="200" src="assets/demoImages/6.png"/>
 	<img width="200" src="assets/demoImages/7.png"/>
 	<img width="200" src="assets/demoImages/8.png"/>
